@@ -1,0 +1,39 @@
+﻿@page
+@model myUniversity.Pages.Students.IndexModel
+@{
+}
+
+<br>
+<h2>Студенты</h2>
+<a class= "btn btn-primary btn-sm" href="/Students/Create">Добавить</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Группа</th>
+            <th>Дата рождения</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var stud in Model.listStudents)
+            {
+                <tr>
+                    <td>@stud.id</td>
+                    <td>@stud.lastname</td>
+                    <td>@stud.firstname</td>
+                    <td>@stud.thirdname</td>
+                    <td>@stud.gruppa</td>
+                    <td>@stud.birthDate</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Students/Edit?id=@stud.id">Ред.</a>
+                        <a class="btn btn-danger btn-sm" href="/Students/Delete?id=@stud.id">Удалить</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
